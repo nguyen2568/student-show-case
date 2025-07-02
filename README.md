@@ -215,7 +215,7 @@ Progressive achievements encourage continued recycling:
 
 
 ## 👥 Team
-This project was developed individually by Giang Nguyen Truong.
+This project was developed by me Truong Giang Nguyen :D
 
 ## 📄 License
 This project was created with the purpose of helping people understand environmental protection. This project belongs to me, and everyone is welcome to clone and use it without requiring permission from me. Feel free to use this project for educational purposes and to promote environmental awareness.
