@@ -231,9 +231,9 @@ This project was developed as part of an innovation project showcasing IoT integ
 
 ## 🆘 Support
 
-For questions or support, please refer to the individual component READMEs:
-- Frontend: `recycle_fe/README.md`
-- Backend: `recycle_api/README.md`
+For questions or support, please contact author (it's me Truong Giang Nguyen)
+[text](https://www.linkedin.com/in/giangnt0321/)
+[text](https://www.giangnt.me/)
 
 ---
 
