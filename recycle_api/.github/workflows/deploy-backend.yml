@@ -1,0 +1,34 @@
+name: Deploy Back-end
+
+on:
+  push:
+    branches: [ main ]
+
+concurrency: deploy-backend    # prevents overlapping SSH sessions
+
+jobs:
+  ssh-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4   # only for commit info in logs
+
+    - name: Deploy over SSH
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        envs: EC2_APP_DIR
+        script: |
+          git --version
+          echo "output"+$EC2_APP_DIR
+          set -e
+          cd $EC2_APP_DIR
+          ls
+          git fetch --all
+          git reset --hard origin/main        # or git pull --ff-only
+          npm ci --omit=dev
+          pm2 restart api
+      env:
+        EC2_APP_DIR: ${{ secrets.EC2_APP_DIR }}

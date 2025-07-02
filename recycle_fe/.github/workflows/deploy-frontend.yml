@@ -1,0 +1,57 @@
+name: Deploy Front-end
+
+on:
+  push:
+    branches: [ main ]
+
+concurrency: deploy-frontend   # cancel running job if a new commit arrives
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 23.10.0
+
+    - name: Install & build
+      # working-directory: 
+      run: |
+        npm ci
+        npm run build               # dist/ by default
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region:            ${{ secrets.AWS_REGION }}
+
+    - name: Sync S3 (hashed assets, 1-year cache)
+      run: |
+        aws s3 sync dist/ s3://$BUCKET_NAME \
+          --exclude "index.html" \
+          --cache-control "public,max-age=31536000,immutable" \
+          --delete
+      env:
+        BUCKET_NAME: ${{ secrets.S3_BUCKET }}
+
+    - name: Upload index.html (no-cache)
+      run: |
+        aws s3 cp dist/index.html s3://$BUCKET_NAME/index.html \
+          --cache-control "max-age=0,no-cache,no-store,must-revalidate"
+      env:
+        BUCKET_NAME: ${{ secrets.S3_BUCKET }}
+
+    - name: Invalidate CloudFront
+      run: |
+        aws cloudfront create-invalidation \
+          --distribution-id $DIST_ID \
+          --paths "/index.html"
+      env:
+        DIST_ID: ${{ secrets.CF_DIST_ID }}
