@@ -232,8 +232,8 @@ This project was developed as part of an innovation project showcasing IoT integ
 ## 🆘 Support
 
 For questions or support, please contact the author (it's me Truong Giang Nguyen)
- | [Email](mailto:giangnt0321@gmail.com)    | 
- | [Portfolio](https://www.giangnt.me/)     |
+- [Linkedln](https://www.linkedin.com/in/giangnt0321/)
+- [Portfolio](https://www.giangnt.me/)
 
 ---
 
