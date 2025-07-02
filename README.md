@@ -213,21 +213,12 @@ Progressive achievements encourage continued recycling:
 5. **WebSocket Broadcast**: Real-time updates sent to user dashboard
 6. **Database Update**: User statistics and achievements updated
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is part of a student innovation showcase and is available for educational purposes.
 
 ## 👥 Team
+This project was developed individually by Giang Nguyen Truong.
 
-This project was developed as part of an innovation project showcasing IoT integration, modern web development, and environmental sustainability.
+## 📄 License
+This project was created with the purpose of helping people understand environmental protection. This project belongs to me, and everyone is welcome to clone and use it without requiring permission from me. Feel free to use this project for educational purposes and to promote environmental awareness.
 
 ## 🆘 Support
 
