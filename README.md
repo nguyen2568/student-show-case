@@ -231,10 +231,9 @@ This project was developed as part of an innovation project showcasing IoT integ
 
 ## 🆘 Support
 
-For questions or support, please contact the author (it's me Truong Giang Nguyen)
+For questions or support, please contact to me
 - [Linkedln](https://www.linkedin.com/in/giangnt0321/)
 - [Portfolio](https://www.giangnt.me/)
-
----
+- 📧 Email: truonggiang.nguyen2196@gmail.com
 
 **🌱 Making recycling smart, engaging, and impactful - one scan at a time!**
